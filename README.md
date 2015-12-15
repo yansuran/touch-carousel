@@ -50,6 +50,8 @@ version 1.0
     //该段可进一步优化 
     
  本例二维码：
- ![image](http://github.com/yansuran/touch-carousel/raw/master/screenshots.png)
+ 
+  ![alt text](screenshots.png)
+
  
  
