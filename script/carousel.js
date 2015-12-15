@@ -45,6 +45,10 @@
                var touch = e.touches[0];
                e.preventDefault();
                moveX = touch.pageX - startX;
+               slideUl.css({ //取消touchmove时,位移缓执行时间,加强交互感受
+                    '-webkit-transition': ' all 0s ease',
+                    'transition': ' all 0s ease'
+               });
                Ascroll(slideUl, initX + moveX);
           });
 
@@ -85,6 +89,10 @@
 
                }
                Autoplay();
+               slideUl.css({ //恢复位移缓执行时间
+                    '-webkit-transition': ' all 0.2s ease',
+                    'transition': ' all 0.2s ease'
+               });
           });
 
           Autoplay();
