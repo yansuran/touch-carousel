@@ -1,0 +1,39 @@
+.slideBox {
+	position: relative;
+	width: 100%;
+	padding-top: 46.666%;
+	overflow: hidden;
+}
+.slideUl {
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.4s ease;
+}
+.slideUl, .list, .list a img {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+.point {
+	position: absolute;
+	z-index: 22;
+	bottom: 10px;
+	left: 50%;
+	font-size: 0px;
+	transform: translate3d(-50%, 0, 0);
+	-webkit-transform: translate3d(-50%, 0, 0);
+}
+.point span {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin: 0px 2px;
+	border: 1px solid #fff;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.point span.current {
+	background-color: #fff;
+}
