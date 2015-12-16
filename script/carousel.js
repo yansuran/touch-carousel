@@ -1,5 +1,5 @@
 /*!
- * @import zepto.js,  version 1.0
+ * @import Zepto.js||jQuery.js,  version 1.0
  *
  * http://chinacoder.cn/
  *
@@ -31,9 +31,11 @@
           slideBox.append(point);
           slideBox.find('.point span').eq(0).addClass('current');
 
+          Acss(slideUl , 0.2);
+
           //touchStart
           slideBox.on("touchstart", function (e) {
-               var touch= !$.touches && !e.touches ?  e.originalEvent.targetTouches[0] : e.touches[0] ;
+               var touch= !$.touches && !e.touches ?  e.originalEvent.touches[0] : e.touches[0] ;
                e.preventDefault();
                startX = touch.pageX;
 
@@ -42,13 +44,11 @@
 
           //touchMove
           slideBox.on("touchmove", function (e) {
-               var touch= !$.touches && !e.touches ?  e.originalEvent.targetTouches[0] : e.touches[0] ;
+               var touch= !$.touches && !e.touches ?  e.originalEvent.touches[0] : e.touches[0] ;
                e.preventDefault();
                moveX = touch.pageX - startX;
-               slideUl.css({ //取消touchmove时,位移缓执行时间,加强交互感受
-                    '-webkit-transition': ' all 0s ease',
-                    'transition': ' all 0s ease'
-               });
+
+               Acss(slideUl , 0);//取消touchmove时,位移缓执行时间,加强交互感
                Ascroll(slideUl, initX + moveX);
           });
 
@@ -61,10 +61,8 @@
                          j--;
                          if (j <= 0) {
                               j = 0;
-                              Ascroll(slideUl, 0);
-                              console.log("j=0 :"+initX);
-                            //  initX = -j * slideWidth;
                          };
+
                          Pointindex(j);
                          Ascroll(slideUl, -j * slideWidth);
                          initX = -j * slideWidth;
@@ -74,7 +72,6 @@
                          j++;
                          if (j >= lenghts - 1) {
                               j = lenghts - 1;
-                              Ascroll(slideUl, -j * slideWidth);
                          };
                          Pointindex(j);
                          Ascroll(slideUl, -j * slideWidth);
@@ -89,26 +86,29 @@
 
                }
                Autoplay();
-               slideUl.css({ //恢复位移缓执行时间
-                    '-webkit-transition': ' all 0.2s ease',
-                    'transition': ' all 0.2s ease'
-               });
+               Acss(slideUl , 0.2); //恢复位移缓执行时间
           });
 
           Autoplay();
 
 
-          function Ascroll(Obj, iTarget) {
+          function Ascroll(Obj, iTarget) { 
                Obj.css({
                     '-webkit-transform': 'translate3d(' + iTarget + 'px,0 , 0)',
                     'transform': 'translate3d(' + iTarget + 'px,0 ,0)'
                });
           };
 
+          function Acss(Obj , Seconds){ 
+              Obj.css({
+                  '-webkit-transition': ' all ' + Seconds + 's ease',
+                  'transition': ' all ' + Seconds + 's ease'
+              });
+          };
+
           function Pointindex(index) {
                slideBox.find('.point span').eq(index).addClass('current').siblings().removeClass('current');
           };
-
 
           function Autoplay(){
              timer= setInterval(function(){
@@ -122,7 +122,7 @@
 
                    initX = -j * slideWidth;//notice
 
-              } , 3000);
+              } , 4000);
           };
 
      })(window.Zepto||window.jQuery);

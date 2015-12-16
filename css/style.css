@@ -4,10 +4,6 @@
 	padding-top: 46.666%;
 	overflow: hidden;
 }
-.slideUl {
-	-webkit-transition: all 0.2s ease;
-	transition: all 0.4s ease;
-}
 .slideUl, .list, .list a img {
 	position: absolute;
 	left: 0px;
