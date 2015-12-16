@@ -33,7 +33,7 @@
 
           //touchStart
           slideBox.on("touchstart", function (e) {
-               var touch = e.touches[0];
+               var touch= !$.touches && !e.touches ?  e.originalEvent.targetTouches[0] : e.touches[0] ;
                e.preventDefault();
                startX = touch.pageX;
 
@@ -42,7 +42,7 @@
 
           //touchMove
           slideBox.on("touchmove", function (e) {
-               var touch = e.touches[0];
+               var touch= !$.touches && !e.touches ?  e.originalEvent.targetTouches[0] : e.touches[0] ;
                e.preventDefault();
                moveX = touch.pageX - startX;
                slideUl.css({ //取消touchmove时,位移缓执行时间,加强交互感受
@@ -125,4 +125,4 @@
               } , 3000);
           };
 
-     })(Zepto);
+     })(window.Zepto||window.jQuery);
