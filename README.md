@@ -1,57 +1,22 @@
-基于ZeptoJs , 移动端touch轮播 Carousel.js
 
-version 1.0
+基于Zepto || jQuery , 移动端touch轮播 Carousel.js
+---------
+
+version 1.2
 
 移动端 touch事件 初试
 
+逻辑部分主要在touchend 中 
 
-主要逻辑部分在touchend 中 
-
-        //touchEnd
-
-          slideBox.on("touchend", function (e) {
-               initX += moveX; // total：initX
-
-               if (Math.abs(moveX) > 50) {
-                    if (moveX > 1) {
-                         j--;
-                         if (j <= 0) {
-                              j = 0;
-                              Ascroll(slideUl, 0);
-                              console.log("j=0 :"+initX);
-                            //  initX = -j * slideWidth;
-                         };
-                         Pointindex(j);
-                         Ascroll(slideUl, -j * slideWidth);
-                         initX = -j * slideWidth;
-
-                         console.log(j);
-                    } else {
-                         j++;
-                         if (j >= lenghts - 1) {
-                              j = lenghts - 1;
-                              Ascroll(slideUl, -j * slideWidth);
-                         };
-                         Pointindex(j);
-                         Ascroll(slideUl, -j * slideWidth);
-                         initX = -j * slideWidth;
-
-                         console.log(j);
-                    }
-               } else {
-                    Ascroll(slideUl, -j * slideWidth);
-                    initX = -j * slideWidth;
-                    console.log(initX);
-
-               }
-               Autoplay();
-          });
-          
-    //该段可进一步优化 
-    
- 本例二维码：
+      
+  本例二维码demo：<br>
  
-  ![alt text](screenshots.png)
+  ![alt text](screenshots.png) <br />
+  version1.0 , 支持：自动轮播, touch吸附<br />
+  本例 [demo实例 Carousel.html](http://chinacoder.cn/Demos/touch-carousel/Carousel.html)<br /> 
+ 
+  
+  ![alt text](screenshots_2.png) <br />
+  version1.2 , 新增：循环无缝效果<br />
+  本例 [demo实例 Carousel_2.html](http://chinacoder.cn/Demos/touch-carousel/Carousel_2.html)<br /> 
 
- 
- 
