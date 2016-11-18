@@ -13,10 +13,9 @@ version 1.2
  
   ![alt text](screenshots.png) <br />
   version1.0 , 支持：自动轮播, touch吸附<br />
-  Carousel.html
- 
+  [demo实例](http://chinacoder.cn/Demos/touch-carousel/Carousel.html)<br /> 
+
   
   ![alt text](screenshots_2.png) <br />
   version1.2 , 新增：循环无缝效果<br />
-  Carousel_2.html
-
+  [demo实例](http://chinacoder.cn/Demos/touch-carousel/Carousel_2.html)<br /> 
